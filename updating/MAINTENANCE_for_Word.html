@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; }
+h1 { color: #2c3e50; border-bottom: 2px solid #eee; }
+h2 { color: #2980b9; margin-top: 30px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #f8f9fa; }
+ul { margin-bottom: 20px; }
+li { margin-bottom: 10px; }
+.note { font-style: italic; color: #7f8c8d; margin-top: 40px; border-top: 1px solid #eee; padding-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>🛠️ Impact Cornwall — Quarterly Maintenance Guide</h1>
+
+<p>This guide outlines the process for keeping the <strong>Vital Stats Catalogue</strong> accurate and substantiated every three months.</p>
+
+<hr>
+
+<h2>1. Maintenance Strategy</h2>
+<p>We categorize every statistic by its <strong>Source Type</strong> to determine how it should be updated:</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Source Type</th>
+            <th>Strategy</th>
+            <th>Tools</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>API</strong></td>
+            <td>Automated fetch from official portals.</td>
+            <td>ONS/Nomis API, Police.uk API</td>
+        </tr>
+        <tr>
+            <td><strong>Landing Page</strong></td>
+            <td>Monitor a page for new PDF uploads.</td>
+            <td>Visualping, Distill.io</td>
+        </tr>
+        <tr>
+            <td><strong>Deep Search</strong></td>
+            <td>Emulate search on landing pages.</td>
+            <td>Playwright, Selenium</td>
+        </tr>
+        <tr>
+            <td><strong>Manual</strong></td>
+            <td>Human review of periodical reports.</td>
+            <td>Annual Council Strategy docs</td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<h2>2. Quarterly Workflow</h2>
+<p>At the start of each quarter (Jan, April, July, Oct):</p>
+
+<ol>
+    <li><strong>Run the Monitor Script:</strong>
+        <ul>
+            <li>Execute <code>quarterly_monitor.py</code>.</li>
+            <li>This script checks for <strong>Broken Links (404s)</strong> and <strong>Data Drift</strong> (where the number in the spreadsheet no longer appears on the linked page).</li>
+        </ul>
+    </li>
+    <li><strong>Review Exception Report:</strong>
+        <ul>
+            <li>The script will generate a list of "Failed" or "Inconsistent" rows.</li>
+            <li><strong>Action:</strong> Only manually research these rows.</li>
+        </ul>
+    </li>
+    <li><strong>Check Annual Report Cycles:</strong>
+        <ul>
+            <li><strong>April:</strong> New Council Budgets and Housing snapshots.</li>
+            <li><strong>July:</strong> Environment Agency Annual Status Reports.</li>
+            <li><strong>Sept/Oct:</strong> Safer Cornwall Strategic Assessment updates.</li>
+        </ul>
+    </li>
+    <li><strong>Update "Last Verified" Date:</strong>
+        <ul>
+            <li>Record the update in the spreadsheet to maintain the audit trail.</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h2>3. Automation Tools</h2>
+<p>To reduce manual labor, use these specific connectors:</p>
+
+<ul>
+    <li><strong>ONS / Nomis:</strong> Use the <a href="https://www.nomisweb.co.uk/query/select/getdatasetbytheme.asp">Nomis Query Tool</a> to save a "bookmark" for Cornwall stats.</li>
+    <li><strong>Change Monitoring:</strong> Set up a free account on <a href="https://visualping.io/">Visualping.io</a> for these high-value landing pages:
+        <ul>
+            <li><a href="https://safercornwall.co.uk/reports/">Safer Cornwall Reports</a></li>
+            <li><a href="https://www.cornwall.gov.uk/council-and-democracy/data-and-research/">Cornwall Council Data & Research</a></li>
+            <li><a href="https://www.ons.gov.uk/economy/inflationandpriceindices/bulletins/housepriceindex/previousReleases">ONS Housing Price Index</a></li>
+        </ul>
+    </li>
+</ul>
+
+<hr>
+
+<h2>4. Maintenance Script</h2>
+<p>The provided <code>quarterly_monitor.py</code> uses the <code>maintenance_config.json</code> to perform automated health checks on your links.</p>
+
+</body>
+</html>

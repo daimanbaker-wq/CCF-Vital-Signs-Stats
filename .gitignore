@@ -1,0 +1,25 @@
+# Excel temporary files
+~$*.xlsx
+
+# Local environment / IDE
+.claude/
+.vscode/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Logs and intermediate research files
+*log.json
+xlsx_rows.json
+xlsx_summary.json
+scratch/
+full_mapped_results.json
+missed_sentences.json
+truly_missing.json
+research_report.json

@@ -1,0 +1,34 @@
+[
+  {
+    "category": "Economy",
+    "name": "ONS Housing Index",
+    "url": "https://www.ons.gov.uk/visualisations/housingpriceslocal/E06000052/",
+    "source_type": "API_OR_SCRAPE",
+    "frequency": "Monthly",
+    "last_check": "2026-05-23"
+  },
+  {
+    "category": "Crime",
+    "name": "Safer Cornwall Assessments",
+    "url": "https://safercornwall.co.uk/reports/",
+    "source_type": "LANDING_PAGE_MONITOR",
+    "frequency": "Quarterly",
+    "last_check": "2026-05-23"
+  },
+  {
+    "category": "Education",
+    "name": "DfE Performance Tables",
+    "url": "https://www.compare-school-performance.service.gov.uk/schools-by-type?step=default&table=schools&region=936&la=908",
+    "source_type": "DEEP_SEARCH",
+    "frequency": "Annual",
+    "last_check": "2026-05-23"
+  },
+  {
+    "category": "Health",
+    "name": "OHID Fingertips",
+    "url": "https://fingertips.phe.org.uk/profile/public-health-outcomes-framework",
+    "source_type": "API",
+    "frequency": "Quarterly",
+    "last_check": "2026-05-23"
+  }
+]

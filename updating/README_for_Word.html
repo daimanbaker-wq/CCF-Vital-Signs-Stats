@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; }
+h1 { color: #2c3e50; border-bottom: 2px solid #eee; }
+h2 { color: #2980b9; margin-top: 30px; }
+code { background: #f4f4f4; padding: 2px 5px; font-family: monospace; }
+pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+.note { font-style: italic; color: #7f8c8d; margin-top: 40px; border-top: 1px solid #eee; padding-top: 10px; }
+</style>
+</head>
+<body>
+
+<h1>🔄 Vital Stats Maintenance Procedures</h1>
+
+<p>Follow these steps every quarter (January, April, July, October) to ensure the Cornwall Vital Stats Catalogue remains accurate and substantiated.</p>
+
+<hr>
+
+<h2>Step 1: Identify Issues (The Monitor)</h2>
+<p>Run the monitor script to find broken links (404s) or "data drift" (where the numbers in your spreadsheet no longer match the numbers on the website).</p>
+
+<ol>
+    <li><strong>Open Terminal</strong> and navigate to the project root:
+        <pre><code>cd "C:\Daiman\AI Apps\Hermes"</code></pre>
+    </li>
+    <li><strong>Run the Script</strong>:
+        <pre><code>python updating/quarterly_monitor.py</code></pre>
+    </li>
+    <li><strong>Review the Results</strong>: 
+        Open <strong>"Quarterly_Exception_Report.md"</strong> in the root folder.
+        <ul>
+            <li><strong>Link Broken</strong>: The URL is dead or moved.</li>
+            <li><strong>Data Drift</strong>: The URL works, but the specific statistic (e.g., "33,083") was not found on the page.</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h2>Step 2: Research & Fix</h2>
+<p>For any rows listed in the Exception Report:</p>
+<ol>
+    <li>Manually visit the source website or use a search engine to find the updated figure or the new report URL.</li>
+    <li>Verify the new data point matches the claim in your spreadsheet.</li>
+</ol>
+
+<hr>
+
+<h2>Step 3: Apply Updates (The Updater)</h2>
+<p>Once you have your fixes, use this script to bulk-update the Excel file.</p>
+
+<ol>
+    <li><strong>Update "mappings.json"</strong>:
+        Add or update the entries for the rows you fixed. Ensure the <code>row</code> number, <code>sentence</code>, and <code>foundUrls</code> are correct.
+    </li>
+    <li><strong>Run the Apply Script</strong>:
+        <pre><code>python updating/apply_updates.py</code></pre>
+    </li>
+    <li><strong>Check Output</strong>:
+        A new file named <strong>"Vital_Stats_Completed.xlsx"</strong> will be generated with updated URLs and green validation marks.
+    </li>
+</ol>
+
+<hr>
+
+<h2>📂 File Reference</h2>
+<ul>
+    <li><strong>quarterly_monitor.py</strong>: Automated health check for all stats.</li>
+    <li><strong>apply_updates.py</strong>: Programmatically writes verified data to Excel.</li>
+    <li><strong>maintenance_config.json</strong>: List of primary sources and their update frequencies.</li>
+    <li><strong>MAINTENANCE.md</strong>: Strategic overview of the maintenance categories.</li>
+</ul>
+
+<p class="note">Note: Always keep 'Partially completed.xlsx' as your master template. For support or complex searches, refer to the research strategies in MAINTENANCE.md.</p>
+
+</body>
+</html>
