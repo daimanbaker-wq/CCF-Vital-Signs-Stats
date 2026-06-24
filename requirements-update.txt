@@ -1,0 +1,5 @@
+# CCF Vital Stats Update Scripts — Additional Dependencies
+# These need Playwright (browser binaries) — separate from dashboard
+playwright==1.60.0
+beautifulsoup4==4.13.3
+lxml==5.3.1
