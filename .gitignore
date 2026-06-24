@@ -18,3 +18,6 @@ venv/
 Vital_Stats_Completed.xlsx
 Vital_Stats_Updated.xlsx
 Vital_Stats_Validated.xlsx
+# Test venv
+sc-venv/
+tmp/

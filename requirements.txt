@@ -1,5 +1,6 @@
 # CCF Vital Stats Dashboard — Runtime Dependencies
 # Lightweight — only what the dashboard needs
-pandas==2.2.3
-openpyxl==3.1.5
-streamlit==1.41.1
+# Pins removed for Streamlit Cloud compatibility
+pandas>=2.0,<3
+openpyxl>=3.1
+streamlit>=1.35,<2
