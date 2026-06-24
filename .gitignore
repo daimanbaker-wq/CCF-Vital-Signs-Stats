@@ -1,25 +1,20 @@
-# Excel temporary files
-~$*.xlsx
-
-# Local environment / IDE
-.claude/
-.vscode/
-
-# Node.js
-node_modules/
-package-lock.json
-
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
 venv/
+.env
 
-# Logs and intermediate research files
-*log.json
-xlsx_rows.json
-xlsx_summary.json
-scratch/
-full_mapped_results.json
-missed_sentences.json
-truly_missing.json
-research_report.json
+# macOS
+.DS_Store
+*.swp
+*.swo
+
+# Superseded data files (keep only the latest verified)
+*.bak
+*.tmp
+
+# Project-specific — no longer used
+Vital_Stats_Completed.xlsx
+Vital_Stats_Updated.xlsx
+Vital_Stats_Validated.xlsx

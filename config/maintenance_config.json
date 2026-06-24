@@ -1,0 +1,27 @@
+{
+  "project": "CCF Vital Stats Database",
+  "version": "1.0.0",
+  "data_file": "data/Vital_Stats_Verified (June 19).xlsx",
+  "reference_file": "Vital Issues 2025 - MASTER v5 (cleaner).txt",
+  "output_file": "Vital_Stats_Completed.xlsx",
+  "report_file": "reports/Quarterly_Exception_Report.md",
+  "quarterly_schedule": {
+    "Q1": { "window": "January 1–5", "action": "Run quarterly_monitor.py — catch post-holiday ONS endpoint reallocations" },
+    "Q2": { "window": "April 1–5", "action": "Address NOT_FOUND endpoints using alternative regional council mappings" },
+    "Q3": { "window": "July 1–5", "action": "Run data drift verification against annual June Vital Signs releases" },
+    "Q4": { "window": "October 1–5", "action": "Bulk execute apply_updates.py prior to Q4 strategic review cycles" }
+  },
+  "scraper": {
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "timeout_ms": 30000,
+    "block_images": true,
+    "block_videos": true
+  },
+  "verdicts": {
+    "VALID": "Data confirmed on source page",
+    "LINK_BROKEN": "Destination returns non-200 status or dead domain",
+    "DATA_DRIFT": "Page works but stat is absent or changed",
+    "JS_RENDERED": "Page requires JavaScript rendering to verify",
+    "UNREACHABLE": "Could not reach URL — timeout or DNS failure"
+  }
+}

@@ -1,0 +1,8 @@
+# CCF Vital Stats Database — Dependencies
+# Installed versions as of June 2026
+pandas==2.2.3
+openpyxl==3.1.5
+playwright==1.60.0
+beautifulsoup4==4.13.3
+lxml==5.3.1
+streamlit==1.41.1
