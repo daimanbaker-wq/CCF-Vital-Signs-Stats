@@ -31,8 +31,8 @@ HERE = Path(__file__).resolve().parent.parent
 DATA_DIR = HERE / "data"
 CONFIG_DIR = HERE / "config"
 REPORTS_DIR = HERE / "reports"
-XLSX_IN = DATA_DIR / "Vital_Stats_Verified (June 19).xlsx"
-XLSX_OUT = HERE / "Vital_Stats_Completed.xlsx"
+XLSX_IN = HERE / "Vital_Stats_Verified (June 19).xlsx"
+XLSX_OUT = HERE / "Vital_Stats_Verified (June 19).xlsx"
 REPORT_OUT = REPORTS_DIR / "Quarterly_Exception_Report.md"
 CONFIG_FILE = CONFIG_DIR / "maintenance_config.json"
 
